@@ -6,6 +6,7 @@ import HomePage from './pages/Home'
 import AboutPage from './pages/About'
 import ServicePage from './pages/Services'
 import MenuPage from './pages/menu'
+import OrderPage from './pages/order'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
                   <Route index element={<HomePage/>}/>
                   <Route path='about' element={<AboutPage/>}/>
                   <Route path='menu' element={<MenuPage/>}/>
+                  <Route path='order' element={<OrderPage/>}/>
                   <Route path='services' element={<ServicePage/>}/>
             </Route>
           </Routes>
