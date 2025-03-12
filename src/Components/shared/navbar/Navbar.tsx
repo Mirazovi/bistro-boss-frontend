@@ -11,6 +11,7 @@ const Navbar = () => {
             <div className='flex gap-6 items-center'>
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
+                <Link to="/menu">Menu</Link>
                 <Link to="/services">Services</Link>
             <div>
                 <button className='bg-[#2f96d3] py-1 px-3 rounded-md text-white'>Contact Now</button>

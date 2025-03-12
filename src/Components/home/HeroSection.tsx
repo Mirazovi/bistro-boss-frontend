@@ -26,10 +26,10 @@ const HeroSection = () => {
                     }}
                     pagination={true}
                     modules={[EffectCoverflow, Pagination,Autoplay]}
-                    autoplay={{
-                        delay:1000,
-                        disableOnInteraction:false
-                    }}
+                    // autoplay={{
+                    //     delay:1000,
+                    //     disableOnInteraction:false
+                    // }}
                     className="mySwiper h-[500px] "
                     breakpoints={{
                         320: { slidesPerView: 1 }, 

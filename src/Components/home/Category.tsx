@@ -28,6 +28,12 @@ const Category = () => {
           delay: 1000, 
           disableOnInteraction: false, 
         }}
+        breakpoints={{
+          320: { slidesPerView: 1 }, 
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 }, 
+          1280: { slidesPerView: 5 }, 
+        }}
         className="mySwiper"
       >
         <SwiperSlide className="relative">
