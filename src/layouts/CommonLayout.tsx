@@ -1,14 +1,16 @@
 import React from 'react'
-import { Outlet } from 'react-router'
+import { Outlet, useLocation } from 'react-router'
 import Navbar from '../Components/shared/navbar/Navbar'
 import Footer from '../Components/shared/footer'
 
 const CommonLayout = () => {
+  const location = useLocation()
+  const noNavAndFooter = location.pathname.includes('login')
   return (
     <div>
-       <Navbar/>
+      {noNavAndFooter ||  <Navbar/>}
         <Outlet/>
-        <Footer/>
+      {noNavAndFooter ||   <Footer/>}
     </div>
   )
 }
