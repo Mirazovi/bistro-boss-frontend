@@ -19,7 +19,7 @@ const MenuCategory = ({items,heading,subHeading,coverImg,title,subTitle}) => {
                 items?.map((item,idx) => <MenuItem key={idx} item={item}></MenuItem>)
             }
     </div>
-    <Link to={`/order/salad`} className='flex justify-center items-center mt-4'>
+    <Link to={`/order`} className='flex justify-center items-center mt-4'>
  <button className='py-3 px-6 rounded-lg text-xl bg-[#e8e8e8] text-[#bb8506] border-b-4 border-[#bb8506] '>Order Your Favorite Food</button>
  </Link>
             </>

@@ -7,17 +7,6 @@ import useMenu from '../../hooks/useMenu';
 const Recommended = () => {
   const [menus] = useMenu();
   const recommend = menus.filter(item => item.category === 'offered')
-  // const [menus,setMenus] = useState([]);
-
-  // useEffect(() => {
-  //   fetch('menu.json')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       const recommend = data.filter(item => item.category === 'offered');
-  //       setMenus(recommend);
-  //     });
-  // }, []);
-  console.log(recommend);
   return (
     <>
     <SectionTitle title={'-- Should I Try --'} subTitle={'CHEF RECOMMENDS'}>

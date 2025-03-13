@@ -2,9 +2,11 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router'
 import { AuthContext } from '../../../firebase/AuthProvider'
 import { ShoppingCart } from '../../Icons/Icons';
+import useCarts from '../../../hooks/useCarts';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [cart] = useCarts();
     const handleLogOut = () => {
         logOut()
             .then()
@@ -23,7 +25,7 @@ const Navbar = () => {
                     <Link to="/menu">Menu</Link>
                     <Link to="/order">Order</Link>
                     <button className="btn">
-                        <div className="badge badge-secondary text-xl p-2"><ShoppingCart/>+0</div>
+                        <div className="badge badge-secondary text-xl p-2"><ShoppingCart/>+{cart.length}</div>
                     </button>
                     {
                         user ?
