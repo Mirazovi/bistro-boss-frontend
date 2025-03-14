@@ -24,9 +24,9 @@ const Navbar = () => {
                     <Link to="/">Home</Link>
                     <Link to="/menu">Menu</Link>
                     <Link to="/order">Order</Link>
-                    <button className="btn">
+                    <Link to={'/dashboard/cart'} className="btn">
                         <div className="badge badge-secondary text-xl p-2"><ShoppingCart/>+{cart.length}</div>
-                    </button>
+                    </Link>
                     {
                         user ?
                             <div className='flex gap-2 items-center '>

@@ -3,8 +3,13 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../firebase/AuthProvider';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
+import Social from '../../firebase/Social';
 
 const RegisterPage = () => {
+
+    const axiosPublic = useAxiosPublic();
+
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -15,19 +20,28 @@ const RegisterPage = () => {
         const handleRegister = (e) => {
             e.preventDefault();
             const from = e.target;
+            const name = from.name.value;
             const email = from.email.value;
             const password = from.password.value;
             console.log(email,password);
+            const userInfo = {
+              name: name,
+              email: email,
+            }
             createUser(email,password)
             .then(result =>{
-                const user = result.user;
-                console.log(user);
-                Swal.fire({
+              axiosPublic.post('/users',userInfo)
+              .then(res =>{
+                if(res.data.insertedId){
+                  Swal.fire({
                     title: "User Register Successfully",
                     icon: "success",
                     draggable: true
                   });
                   navigate('/')
+                }
+              })
+               
             })
             .catch(error =>{
                 alert(error.message)
@@ -101,6 +115,7 @@ const RegisterPage = () => {
         <p>Already have an account please <Link to={'/login'} className='text-purple-800 font-bold'>Login</Link></p>
         <button type='submit' className="w-full p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Register</button>
       </form>
+      <Social/>
     </div>
   </div>
   )

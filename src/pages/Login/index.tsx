@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../firebase/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import Social from '../../firebase/Social';
 
 const LoginPage = () => {
 
@@ -88,6 +89,7 @@ const LoginPage = () => {
           <p>Are you knew please <Link to={'/register'} className='text-purple-800 font-bold'>Register</Link></p>
           <button type='submit' className="w-full p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Submit</button>
         </form>
+        <Social/>
       </div>
     </div>
   )
