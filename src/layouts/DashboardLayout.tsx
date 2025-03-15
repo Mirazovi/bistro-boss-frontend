@@ -1,10 +1,11 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router'
 import { AddItemIcon, AllUserIcon, ContactIcon, HomeIcon, MenuIcon, OrderIcon, ReservationIcon, ShoppingCart } from '../Components/Icons/Icons'
+import useAdmin from '../hooks/useAdmin';
 
 const DashboardLayout = () => {
 
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div className='flex w-[80%] mx-auto'>
 

@@ -18,7 +18,7 @@ const AllUsers = () => {
 
 
     const handleMakeAdmin = (user) => {
-        axiosSecure.patch(`/users/admin/${user._id}`)
+        axiosSecure.patch(`/users/admin/${user?._id}`)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     refetch();
@@ -87,7 +87,7 @@ const AllUsers = () => {
                                     <td className="px-4 py-2 ">{user.email}</td>
                                     <td className="px-4 py-2 ">
                                         {
-                                            user.roll === 'admin' ? 'Admin' :
+                                            user.role === 'admin' ? 'Admin' :
                                                 <button
                                                     onClick={() => handleMakeAdmin(user)}
                                                     className='bg-orange-400 btn btn-lg'><AllUserIcon /></button>
