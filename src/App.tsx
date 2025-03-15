@@ -14,6 +14,11 @@ import DashboardLayout from './layouts/DashboardLayout'
 import Cart from './Components/Dashboard/Cart'
 import ContactPage from './pages/contact'
 import AllUsers from './Components/Dashboard/AllUsers'
+import Dashboard from './Components/Dashboard/Dashboard'
+import Reservation from './Components/Dashboard/Reservation'
+import AddItems from './Components/Dashboard/AddItems'
+import ManageItems from './Components/Dashboard/ManageItems'
+import ManageBookings from './Components/Dashboard/ManageBookings'
 
 function App() {
 
@@ -34,6 +39,11 @@ function App() {
             </Route>
             <Route path='dashboard' element={<PrivateRoute><DashboardLayout/></PrivateRoute>}>
                      <Route path='cart' element={<Cart/>}></Route> 
+                     <Route path='adminHome' element={<Dashboard/>}></Route> 
+                     <Route path='reservation' element={<Reservation/>}></Route> 
+                     <Route path='addItems' element={<AddItems/>}></Route> 
+                     <Route path='manageItems' element={<ManageItems/>}></Route> 
+                     <Route path='manageBookings' element={<ManageBookings/>}></Route> 
                      <Route path='allUsers' element={<AllUsers/>}></Route> 
             </Route>
           </Routes>
