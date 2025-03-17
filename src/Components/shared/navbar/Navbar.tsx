@@ -3,9 +3,11 @@ import { Link } from 'react-router'
 import { AuthContext } from '../../../firebase/AuthProvider'
 import { ShoppingCart } from '../../Icons/Icons';
 import useCarts from '../../../hooks/useCarts';
+import useAdmin from '../../../hooks/useAdmin';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [isAdmin] = useAdmin()
     const [cart] = useCarts();
     const handleLogOut = () => {
         logOut()
@@ -24,6 +26,12 @@ const Navbar = () => {
                     <Link to="/">Home</Link>
                     <Link to="/menu">Menu</Link>
                     <Link to="/order">Order</Link>
+                    {
+                        user && isAdmin && <Link to={'/dashboard/adminHome'}>Dashboard</Link>
+                    }
+                    {
+                        user && !isAdmin && <Link to={'/dashboard/home'}>Dashboard</Link>
+                    }
                     <Link to={'/dashboard/cart'} className="btn">
                         <div className="badge badge-secondary text-xl p-2"><ShoppingCart/>+{cart.length}</div>
                     </Link>

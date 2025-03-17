@@ -3,6 +3,7 @@ import useMenu from '../../hooks/useMenu'
 import { DeleteIcon, EditIcon } from '../Icons/Icons'
 import Swal from 'sweetalert2'
 import useAxiosSecure from '../../hooks/useAxiosSecure'
+import { Link } from 'react-router'
 
 const ManageItems = () => {
     const axiosSecure = useAxiosSecure()
@@ -31,7 +32,6 @@ const ManageItems = () => {
             }
           });
     }
-    console.log(menus);
   return (
     <div className="overflow-x-auto">
         <div className='flex justify-evenly items-center mb-10'>
@@ -59,11 +59,12 @@ const ManageItems = () => {
                     <td className="px-4 py-2">{menu.name}</td>
                     <td className="px-4 py-2">${menu.price}</td>
                     <td className="px-4 py-2">
+                        <Link to={`/dashboard/updateItem/${menu?._id}`}>
                         <button
                             className="text-blue-500 hover:text-orange-200  hover:underline flex justify-center items-center p-4 rounded-md bg-orange-400 text-2xl"
                         >
                             <EditIcon/>
-                        </button>
+                        </button></Link>
                     </td>
                     <td className="px-4 py-2">
                         <button
